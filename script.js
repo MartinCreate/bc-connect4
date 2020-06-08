@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var currentPlayer = "player1";
     var currentHover = "hovP1";
     var sideArrowInd = -1;
@@ -9,7 +9,7 @@
     var blueScore = 0;
     var redScore = 0;
 
-    $(".column").on("click", function(e) {
+    $(".column").on("click", function (e) {
         $("." + currentHover).removeClass(currentHover);
 
         var col = $(e.currentTarget);
@@ -37,7 +37,7 @@
 
         function victoryScreen() {
             winScreen.css({
-                visibility: "visible"
+                visibility: "visible",
             });
             winText.html(winner + " Wins!");
             if (winner == "Blue") {
@@ -59,7 +59,7 @@
 
         function tieScreen() {
             tieScreenCss.css({
-                visibility: "visible"
+                visibility: "visible",
             });
         }
 
@@ -148,7 +148,7 @@
     }
 
     ////--------MOUSEHOVER INDICATOR--------////
-    $(".column").on("mousemove", function(k) {
+    $(".column").on("mousemove", function (k) {
         $(".reset").removeClass("resetHighlight");
         $(".nextGame").removeClass("nextGameHighlight");
         $("." + currentHover).removeClass(currentHover);
@@ -156,31 +156,31 @@
         colSlotIterator(hovCol, currentHover);
     });
 
-    $(".column").on("mouseleave", function() {
+    $(".column").on("mouseleave", function () {
         $("." + currentHover).removeClass(currentHover);
         sideArrowInd = -1;
     });
 
-    $(".nextGame").on("mouseenter", function() {
+    $(".nextGame").on("mouseenter", function () {
         $(".reset").removeClass("resetHighlight");
     });
 
-    $(".reset").on("mouseenter", function() {
+    $(".reset").on("mouseenter", function () {
         $(".nextGame").removeClass("nextGameHighlight");
     });
 
     ////--------NEXT GAME--------////
-    $(".nextGame").on("click", function() {
+    $(".nextGame").on("click", function () {
         $("." + currentHover).removeClass(currentHover);
 
         winScreen.css({
-            visibility: "hidden"
+            visibility: "hidden",
         });
         tieScreenCss.css({
-            visibility: "hidden"
+            visibility: "hidden",
         });
 
-        setTimeout(removePlayers, 2000);
+        setTimeout(removePlayers, 600);
 
         currentPlayer = "player1";
         currentHover = "hovP1";
@@ -191,14 +191,14 @@
     });
 
     ////--------RESET SCORE--------////
-    $(".reset").on("click", function() {
+    $(".reset").on("click", function () {
         $("." + currentHover).removeClass(currentHover);
 
         winScreen.css({
-            visibility: "hidden"
+            visibility: "hidden",
         });
         tieScreenCss.css({
-            visibility: "hidden"
+            visibility: "hidden",
         });
 
         setTimeout(resetScore, 300);
@@ -229,9 +229,7 @@
     }
 
     function removePlayers() {
-        $(".slot")
-            .removeClass("player1")
-            .removeClass("player2");
+        $(".slot").removeClass("player1").removeClass("player2");
     }
 
     function checkForVictory(slots) {
@@ -263,7 +261,7 @@
 
     ////--------KEYBOARD INPUTS--------////
 
-    $("body").on("keydown", function(e) {
+    $("body").on("keydown", function (e) {
         //Up/Down Arrow
         if (e.keyCode == 38 || e.keyCode == 40) {
             sideArrowInd = -1;
@@ -295,11 +293,7 @@
 
             //Skipping Full Columns
             while (
-                (cols
-                    .eq(sideArrowInd)
-                    .children()
-                    .eq(0)
-                    .hasClass("player1") ||
+                (cols.eq(sideArrowInd).children().eq(0).hasClass("player1") ||
                     cols
                         .eq(sideArrowInd)
                         .children()
@@ -333,11 +327,7 @@
 
             //Skipping Full Columns
             while (
-                (cols
-                    .eq(sideArrowInd)
-                    .children()
-                    .eq(0)
-                    .hasClass("player1") ||
+                (cols.eq(sideArrowInd).children().eq(0).hasClass("player1") ||
                     cols
                         .eq(sideArrowInd)
                         .children()
@@ -394,7 +384,7 @@
 
                 function victoryScreen() {
                     winScreen.css({
-                        visibility: "visible"
+                        visibility: "visible",
                     });
                     winText.html(winner + " Wins!");
                     if (winner == "Blue") {
@@ -409,7 +399,7 @@
 
                 function tieScreen() {
                     tieScreenCss.css({
-                        visibility: "visible"
+                        visibility: "visible",
                     });
                 }
 
@@ -491,29 +481,3 @@
         }
     });
 })();
-
-//---------//---------DIAGONALS---------//---------//
-//SYSTEMATIC APPROACH
-// wherever the user places the user placed the chip, you check the 4 diagonals
-
-//------ +7 +5 APPROACH ------
-//go up right and down right
-//make sure to check whether the 4 columns
-
-//------ EASYPEASY APPROACH ------
-//create array containing arrays with all possible diagonal victory possibilities (there are only 24)
-
-// //------ THE X APPROACH ------
-// //navigating the x (where the intersection is the div where the player currently inserted a chip)
-// var cols = $(".column");
-// cols.eq(col)
-//     .children()
-//     .eq(row);
-
-// //how to make a jQuery object with arbitrary elements (maybe optional)
-// var myObj = $();
-// myObj = myObj.add($("div").eq(0));
-// myObj = myObj.add($("p").eq(0));
-
-//------ position APPROACH ------//
-// see website

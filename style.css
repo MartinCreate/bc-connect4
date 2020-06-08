@@ -67,12 +67,12 @@ body {
 
 .player1 {
     background-color: #13bcff;
-    transform: translateZ(150px);
+    /* transform: translateZ(150px); */
 }
 
 .player2 {
     background-color: #fd2176;
-    transform: translateZ(-150px);
+    /* transform: translateZ(-150px); */
 }
 
 .victoryScreen {
@@ -268,4 +268,51 @@ h2 {
 #inst1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.63);
     /* width: 173px; */
+}
+
+@media screen and (min-width: 100px) and (max-width: 1030px) {
+    .all {
+        grid-template-columns: 1fr;
+        width: 100%;
+        height: 650px;
+        /* border: 5px solid #ff0000; */
+    }
+
+    .gameInfo {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        padding: 0;
+        height: 600px;
+    }
+
+    .title {
+        /* border: 1px red solid; */
+        font-size: 26px;
+        width: 350px;
+        height: 90px;
+        padding: 5px;
+        border-radius: 50px;
+        margin-top: 0px;
+    }
+
+    .nextGame {
+        font-size: 3vh;
+        width: 220px;
+        height: 60px;
+    }
+
+    .reset {
+        margin-top: 0px;
+        font-size: 2vh;
+        width: 150px;
+        height: 5vh;
+    }
+
+    .game-container {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        min-width: 700px;
+        height: auto;
+        /* border: 5px solid yellow; */
+    }
 }
