@@ -10,7 +10,7 @@ A two-player game where the first person to align 4 of their chips horizontally,
 -   "Reset Score" button - clears board and resets the scores with a short animation
 -   Horizontal, vertical, diagonal victory-check
 -   Blue- Red- Tie- victory screen
--   Hover-chip indicates who's turn it is and where the placed chip will land
+-   Hover-chip indicates whose turn it is and where the placed chip will land
 
 ## Tech Stack
 
