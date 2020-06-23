@@ -21,7 +21,7 @@ A two-player game where the first person to align 4 of their chips horizontally,
 
 ## Screenshots
 
-    ![](./public/screenshots/1.png)
+![](./public/screenshots/1.png)
 
 -   Hover-Chip
     ![](./public/screenshots/2.png)
